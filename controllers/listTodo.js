@@ -2,21 +2,29 @@ const todo = require("../models/todo");
 
 const listTodo = async (req, res) => {
   try {
-    const result;
+    // Check if user has created any tasks yet or not
     if (
-       result= await todo.findAll({
+      !(await todo.findOne({
+        where: {
+          userId: req.session.user.id,
+        },
+      }))
+    ) {
+      res.status(400).send("No tasks to display.");
+    }
+
+    await todo
+      .findAll({
         where: {
           userId: req.session.user.id,
         },
         order: ["id"],
       })
-    ) {
-      res.status(200).json(result);
-    } else {
-      res.status(400).send("No tasks to display.");
-    }
+      .then((result) => {
+        res.status(200).json(result);
+      });
   } catch (err) {
-    res.status(400).send(err);
+    res.status(400).send("No tasks to display.");
   }
 };
 

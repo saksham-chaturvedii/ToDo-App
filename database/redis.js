@@ -5,9 +5,9 @@ const { redis_host, redis_port, redis_password } = require("../config/index");
 
 const RedisStore = connectRedis(session);
 const redisClient = redis.createClient({
-  host: redis_host,
-  port: redis_port,
-  password: redis_password,
+  host: "localhost",
+  port: 6379,
+  // password: redis_password,
 });
 
 redisClient.on("connect", () => {
