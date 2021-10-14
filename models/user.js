@@ -19,8 +19,8 @@ const user = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    userId:{
-       type: DataTypes.STRING,
+    userId: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     createdAt: {

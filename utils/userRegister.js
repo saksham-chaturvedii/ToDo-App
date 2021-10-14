@@ -43,7 +43,6 @@ const userRegister = async (req, res) => {
       user: newUser,
     });
   } catch (err) {
-    console.log(err);
     return res.status(500).json({
       message: "Unable to create your account.",
       success: false,
