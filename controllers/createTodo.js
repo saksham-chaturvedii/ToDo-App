@@ -8,7 +8,7 @@ const createTodo = async (req, res) => {
     if (!status.includes(req.body.status)) {
       res.status(400).json({
         message: "Invalid task status.",
-        validStatus: `{To Do}, {Doing}, {Done}`,
+        validStatus: `{To do}, {Doing}, {Done}`,
       });
     }
     // Generate a uuid for the task
