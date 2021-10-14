@@ -3,8 +3,13 @@ userLogout = async (req, res, next) => {
     if (!req.session.user) {
       res.status(400).send("Please Login first.");
     }
+    const { name, username } = req.session.user;
     await req.session.destroy();
-    res.status(200).send("User logout successful.");
+    res.status(200).json({
+      message: "User logout successful.",
+      user: name,
+      username: username,
+    });
   } catch (err) {
     res.status(400).send(err);
   }
