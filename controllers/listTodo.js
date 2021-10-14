@@ -13,8 +13,7 @@ const listTodo = async (req, res) => {
         res.status(200).json(result);
       });
   } catch (err) {
-    console.log(err);
-    res.status(400).send(err);
+    res.status(400).send("No tasks to display.");
   }
 };
 
