@@ -20,7 +20,7 @@ const todo = sequelize.define(
     status: {
       allowNull: false,
       type: DataTypes.STRING,
-      defaultValue: "To Do",
+      defaultValue: "To do",
       type: DataTypes.ENUM("To do", "Doing", "Done"),
     },
     createdAt: {
