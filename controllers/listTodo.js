@@ -10,10 +10,14 @@ const listTodo = async (req, res) => {
         order: ["id"],
       })
       .then((result) => {
-        res.status(200).json(result);
+        if (result) {
+          res.status(200).json(result);
+        } else {
+          res.status(400).send("No tasks to display.");
+        }
       });
   } catch (err) {
-    res.status(400).send("No tasks to display.");
+    res.status(400).send(err);
   }
 };
 
