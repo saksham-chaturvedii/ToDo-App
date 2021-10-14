@@ -9,5 +9,5 @@ module.exports = {
   sequelize_dialect: process.env.SEQUELIZE_DIALECT,
   redis_host: process.env.REDIS_HOST,
   redis_port: process.env.REDIS_PORT,
-  // redis_password: process.env.REDIS_PASSWORD,
+  redis_password: process.env.REDIS_PASSWORD,
 };
