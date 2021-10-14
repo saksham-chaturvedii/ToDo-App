@@ -15,7 +15,6 @@ const updateTodoByID = async (req, res) => {
         res.status(200).json({ message: `Task updated.`, success: true });
       });
   } catch (err) {
-      console.log(err)
     res.status(400).send("Task does not exist.");
   }
 };
