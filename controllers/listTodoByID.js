@@ -11,8 +11,7 @@ const listTodoByID = async (req, res) => {
         res.status(200).json(result);
       });
   } catch (err) {
-    console.log(err);
-    res.status(400).send(err);
+    res.status(400).send("Task does not exist.");
   }
 };
 
