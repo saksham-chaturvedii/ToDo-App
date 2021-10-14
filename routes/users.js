@@ -5,6 +5,7 @@ const { listTodo } = require("../controllers/listTodo");
 const { todoExists } = require("../controllers/todoExists");
 const { listTodoByID } = require("../controllers/listTodoByID");
 const { deleteTodoByID } = require("../controllers/deleteTodoByID");
+const { updateTodoByID } = require("../controllers/updateTodoByID");
 
 // Create To-do
 router.post("/todos", userAuth, async (req, res) => {
@@ -38,7 +39,16 @@ router.delete("/todos/:id", userAuth, todoExists, async (req, res) => {
   try {
     await deleteTodoByID(req, res);
   } catch (err) {
-    res.status(400).send("To-do Creation Error.");
+    res.status(400).send("Delete To-do Error.");
+  }
+});
+
+// Update To-do by ID
+router.put("/todos/:id", userAuth, todoExists, async (req, res) => {
+  try {
+    await updateTodoByID(req, res);
+  } catch (err) {
+    res.status(400).send("Update To-do Error.");
   }
 });
 

@@ -7,7 +7,7 @@ const deleteTodoByID = async (req, res) => {
       order: ["id"],
     });
     await getTodo.destroy();
-    res.status(200).send("Task marked as done and, deleted.");
+    res.status(200).send("Task has been deleted.");
   } catch (err) {
     res.status(400).send("Task does not exist.");
   }
