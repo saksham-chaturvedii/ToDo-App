@@ -13,9 +13,9 @@ const sequelize = new Sequelize(
   {
     host: sequelize_host,
     dialect: sequelize_dialect,
-    // dialectOptions: {
-    //   ssl: true,
-    // },
+    dialectOptions: {
+      ssl: true,
+    },
   }
 );
 
