@@ -6,9 +6,10 @@ const { todoExists } = require("../controllers/todoExists");
 const { listTodoByID } = require("../controllers/listTodoByID");
 const { deleteTodoByID } = require("../controllers/deleteTodoByID");
 const { updateTodoByID } = require("../controllers/updateTodoByID");
+const { isLoggedIn } = require("../controllers/isLoggedIn");
 
 // Create To-do
-router.post("/todos", userAuth, async (req, res) => {
+router.post("/todos", isLoggedIn, userAuth, async (req, res) => {
   try {
     await createTodo(req, res);
   } catch (err) {
@@ -17,7 +18,7 @@ router.post("/todos", userAuth, async (req, res) => {
 });
 
 // List To-do by id
-router.get("/todos/:id", userAuth, todoExists, async (req, res) => {
+router.get("/todos/:id", isLoggedIn, userAuth, todoExists, async (req, res) => {
   try {
     await listTodoByID(req, res);
   } catch (err) {
@@ -26,7 +27,7 @@ router.get("/todos/:id", userAuth, todoExists, async (req, res) => {
 });
 
 // List all todos of the current user
-router.get("/todos", userAuth, async (req, res) => {
+router.get("/todos", isLoggedIn, userAuth, async (req, res) => {
   try {
     await listTodo(req, res);
   } catch (err) {
@@ -35,16 +36,22 @@ router.get("/todos", userAuth, async (req, res) => {
 });
 
 // Delete To-do by ID
-router.delete("/todos/:id", userAuth, todoExists, async (req, res) => {
-  try {
-    await deleteTodoByID(req, res);
-  } catch (err) {
-    res.status(400).send("Delete To-do Error.");
+router.delete(
+  "/todos/:id",
+  isLoggedIn,
+  userAuth,
+  todoExists,
+  async (req, res) => {
+    try {
+      await deleteTodoByID(req, res);
+    } catch (err) {
+      res.status(400).send("Delete To-do Error.");
+    }
   }
-});
+);
 
 // Update To-do by ID
-router.put("/todos/:id", userAuth, todoExists, async (req, res) => {
+router.put("/todos/:id", isLoggedIn, userAuth, todoExists, async (req, res) => {
   try {
     await updateTodoByID(req, res);
   } catch (err) {
