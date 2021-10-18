@@ -35,5 +35,5 @@ Since, the application is deployed on Heroku, you need not clone the repository 
 ![image](https://user-images.githubusercontent.com/81289215/137782176-7d42540d-da17-406c-9442-ae3c01b47c35.png)
 
 ### STEP 3:
-- Now you can test all the endpoints by sending appropriate requests, without any hassle. If you do send any request incorrectly, the response message shall guide you to the correct way. <br><br>
+- Now you can test all the endpoints by sending appropriate requests, without any hassle. If you do send any request incorrectly, the response message shall guide you the correct way. <br><br>
 ![image](https://user-images.githubusercontent.com/81289215/137782622-2924bf5a-e016-412b-8a84-68f18a453e70.png)
